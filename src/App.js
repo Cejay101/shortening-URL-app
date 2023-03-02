@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import Navbar from "./components/Nav.js";
+import Login from "./pages/Login.js";
+import SignUp from "./pages/SignUp.js";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FrontLanding from "./components/FrontLanding.js";
+import AdvancedStat from "./components/AdvancedStat.js";
+import Footer from "./components/Footer.jsx";
+import Boost from "./components/Boost.jsx";
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+        <FrontLanding/>
+      </BrowserRouter>
+      <AdvancedStat/>
+      <Boost/>
+      <Footer/>
     </div>
   );
 }
-
-export default App;
